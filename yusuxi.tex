@@ -1,7 +1,7 @@
 \documentclass[UTF8,twoside,scheme=chinese,openany]{ctexbook} %设置为双面，openany选项不是默认，设置之后，新章不再默认只能在奇数页打开
 
 
-\usepackage[fontsize=10pt]{fontsize}
+\usepackage[fontsize=11pt]{fontsize}
 \usepackage[T1]{fontenc}%用于选择字体的编码
 \usepackage{fontspec}%用于选择字体
 \usepackage{geometry} %设定页面尺寸
@@ -27,7 +27,7 @@
 \titleformat{\chapter}[block]
 {\normalfont\bfseries}{\huge\itshape\thechapter\filright}{1em}{}
 
-\geometry{a6paper,centering,scale=0.8} %定义页面使用 A6 纸大小，版心居中，长宽占页面的 0:8 倍
+\geometry{a5paper,centering,scale=0.8} %定义页面使用 A6 纸大小，版心居中，长宽占页面的 0:8 倍
 % \hypersetup{
 %     bookmarks = false,
 %     % colorlinks = true,
@@ -37,10 +37,10 @@
 \setCJKmainfont[BoldFont={FZHei-B01},ItalicFont={FZKai-Z03}]{Source Han Serif CN}
 \setCJKsansfont[BoldFont={FZHei-B01},ItalicFont={FZHei-B01}]{FZHei-B01}
 \setCJKmonofont[BoldFont={FZHei-B01},ItalicFont={FZHei-B01}]{FZFangSong-Z02}
-%\setCJKfamilyfont{zhsong}{FZShuSong-Z01}
+%\setCJKfamilyfont{zhsong}{Source Han Serif CN}
 \setCJKfamilyfont{sysong}{Source Han Serif CN}
-\newfontfamily\siyuansong{Source Han Serif CN}
-\def\kaomojihide{{\siyuansong | \textomega・´)}}
+\newfontfamily\sys{Source Han Serif CN}
+\def\kaomojihide{{\sys | ω ·´)}}%原本的kaomoji是| ω・´)，ctex无法显示・,将其改为了中文间隔号·
 %------------------------
 
 %set font using fontspec
@@ -62,7 +62,7 @@
 %\ThisCenterWallPaper{1}{test2}
 \addtocounter{page}{-1}% To ensure the title is set on an odd page, otherwise a blankpage will occur since includepdf is page 1, but title page must be odd, so a blank page with page index 2 is inserted
 \includepdf{front.pdf}
-\maketitle
+%\maketitle 取消标题页似乎更美观
 %另起一页
 
 \include{preface.tex}
