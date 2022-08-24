@@ -1,0 +1,72 @@
+\documentclass[UTF8,twoside,scheme=chinese,openany]{ctexbook} %设置为双面，openany选项不是默认，设置之后，新章不再默认只能在奇数页打开
+
+
+\usepackage[fontsize=8pt]{fontsize}
+\usepackage[T1]{fontenc}%用于选择字体的编码
+\usepackage{fontspec}%用于选择字体
+\usepackage{geometry} %设定页面尺寸
+\usepackage[bookmarks=false]{hyperref}%hypersetup中设置会报错，改为在加载时的可选参数正常工作。
+\usepackage{wallpaper}
+\usepackage{babel}%required for lipsum
+\usepackage{lipsum}%产生示例文字
+\usepackage{titlesec}%用于修改章、节等的标题格式
+\usepackage{titling}%修改title page 格式
+\usepackage{pdfpages}
+\usepackage{tocloft}%修改目录格式
+\usepackage{indentfirst}%每章第一段默认不缩进，不符合中文习惯。需要使用宏包
+\usepackage{textgreek}%用于显示某个颜文字中的字符
+
+
+%------------------------
+
+% \ctexset{
+%     chapter/name=\arabic{chapter},%修改章 为章计数器数字。
+%     chapter/titleformat={}
+% }
+
+\titleformat{\chapter}[block]
+{\normalfont\bfseries}{\huge\itshape\thechapter\filright}{1em}{}
+
+\geometry{a6paper,centering,scale=0.8} %定义页面使用 A6 纸大小，版心居中，长宽占页面的 0:8 倍
+% \hypersetup{
+%     bookmarks = false,
+%     % colorlinks = true,
+% }
+
+%set font using ctex
+\setCJKmainfont[BoldFont={FZHei-B01},ItalicFont={FZKai-Z03}]{Source Han Serif CN}
+\setCJKsansfont[BoldFont={FZHei-B01},ItalicFont={FZHei-B01}]{FZHei-B01}
+\setCJKmonofont[BoldFont={FZHei-B01},ItalicFont={FZHei-B01}]{FZFangSong-Z02}
+\setCJKfamilyfont{zhsong}{FZShuSong-Z01}
+\setCJKfamilyfont{sysong}{Source Han Serif CN}
+\def\kaomojihide{{\CJKfamily{sysong}| \textomega・´)}}
+%------------------------
+
+%set font using fontspec
+% \setmainfont{Source Han Serif CN}
+% \newfontfamily\siyuansong{Source Han Serif CN}
+% \def\kaomojihide{{\siyuansong| \textomega・´)}}
+
+
+\pagestyle{plain}%修改ctexbook默认pagestyle是headings，会在页眉处显示页码，章信息；只有在每章第一页才会变成plain
+\author{\zihao{-1} zwSVC5H}
+\date{}%设置为空，避免显示日期
+\title{俞小姐}
+\graphicspath{{figure/}}%设置图片目录。即便只有一个文件目录，也要加括号
+
+%------------------------
+%\newenvironment{diag}{\chapter{}\obeylines}{}%用multicommand，在keybindings.json和settings.json中设置快捷键为alt+c-------已废弃。使用\obeylines作为替代
+\begin{document}
+
+%\ThisCenterWallPaper{1}{test2}
+\addtocounter{page}{-1}% To ensure the title is set on an odd page, otherwise a blankpage will occur since includepdf is page 1, but title page must be odd, so a blank page with page index 2 is inserted
+\includepdf{front.pdf}
+\maketitle
+%另起一页
+
+\include{preface.tex}
+\tableofcontents
+\obeylines %设置单个回车换行
+\input{maintext.tex}
+\includepdf{back.pdf}
+\end{document}
