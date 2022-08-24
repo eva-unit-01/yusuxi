@@ -37,9 +37,10 @@
 \setCJKmainfont[BoldFont={FZHei-B01},ItalicFont={FZKai-Z03}]{Source Han Serif CN}
 \setCJKsansfont[BoldFont={FZHei-B01},ItalicFont={FZHei-B01}]{FZHei-B01}
 \setCJKmonofont[BoldFont={FZHei-B01},ItalicFont={FZHei-B01}]{FZFangSong-Z02}
-\setCJKfamilyfont{zhsong}{FZShuSong-Z01}
+%\setCJKfamilyfont{zhsong}{FZShuSong-Z01}
 \setCJKfamilyfont{sysong}{Source Han Serif CN}
-\def\kaomojihide{{\CJKfamily{sysong}| \textomega・´)}}
+\newfontfamily\siyuansong{Source Han Serif CN}
+\def\kaomojihide{{\siyuansong | \textomega・´)}}
 %------------------------
 
 %set font using fontspec
@@ -49,9 +50,9 @@
 
 
 \pagestyle{plain}%修改ctexbook默认pagestyle是headings，会在页眉处显示页码，章信息；只有在每章第一页才会变成plain
-\author{\zihao{-1} zwSVC5H}
+\author{\zihao{3} zwSVC5H}
 \date{}%设置为空，避免显示日期
-\title{俞小姐}
+\title{\zihao{-1}俞小姐}
 \graphicspath{{figure/}}%设置图片目录。即便只有一个文件目录，也要加括号
 
 %------------------------
